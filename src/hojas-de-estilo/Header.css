@@ -153,3 +153,27 @@
     bottom: 40px;
     left: 50px;
 }
+
+.resfo:link
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+.resfo:visited
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+.resfo:hover
+{
+    color: #000000;
+    text-decoration: none;
+}
+
+.resfo:active
+{
+    color: #000000;
+    text-decoration: none;
+}

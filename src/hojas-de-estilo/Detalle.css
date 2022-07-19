@@ -38,3 +38,43 @@
     color: #ffffff;
     text-decoration: none;
 }
+
+.cantdet {
+    font-size: 20px;
+    width: 10px;
+    margin: 0.8,
+} 
+
+.pr {
+    width: 50px;
+    height: 60px;
+    background-color: transparent;
+    position: relative;
+    left: 300px;
+    bottom: 60px;
+}
+
+
+.cont {
+    position: relative;
+    bottom: 36px;
+    left: 30px;
+    font-size: 20px;
+    color: white;
+}
+.dd {
+    background-color: #8381FF;
+    width: 25px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.dd2 {
+    background-color: #8381FF;
+    width: 25px;
+    border-radius: 4px;
+}
+.dd22 {
+    font-size: 20px;
+    color: white;
+}

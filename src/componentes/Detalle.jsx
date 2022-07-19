@@ -13,12 +13,36 @@ import { useParams } from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import "../hojas-de-estilo/Detalle.css";
 import BarraBusqueda from './BarraBusqueda';
-import { Link } from 'react-router-dom';
+import { createPayment } from "../services/mercado.service";
 
 const ListadeLibros2 = () => {
   let { id_ejemplar } = useParams();
 
+  const Comprar = (cantidad, precioTotal) => {
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let Email = params.get("carrito");
+    createPayment(Email, cantidad, precioTotal)
+      .then((res) => (window.location.href = res.init_point))
+      .catch(console.error);
+  };
+
   const [ejemplares1, setEjemplares] = useState([]);
+
+  const [count, setCount] = useState(1)
+
+  const sumar = () => {
+    setCount(count + 1);
+  }
+
+  const restar = () => {
+    if (count <= 1) {
+      console.log('es 1')
+    } else {
+      setCount(count - 1);
+    }
+    
+  }
 
   const getEjemplar = async () => {
     try {
@@ -219,8 +243,10 @@ const ListadeLibros2 = () => {
                 maxWidth: 600,
                 backgroundColor: "transparent",
                 boxShadow: 0,
+                color: "white",
               }}
             >
+
               <Button
                 variant="contained"
                 sx={{
@@ -228,10 +254,15 @@ const ListadeLibros2 = () => {
                   borderRadius: 25,
                   margin: 0.8,
                   fontFamily: "Roboto",
+                  marginLeft: 9,
                 }}
+                onClick={() =>
+                  Comprar(1, precioactual)}
               >
-                <Link to="https://api.mercadopago.com/checkout/preferences" className="comprardet"> Comprar </Link>
+                Comprar
               </Button>
+
+              
               <Button
                 onClick={() => cargarEnCarrito()}
                 variant="contained"
@@ -254,29 +285,44 @@ const ListadeLibros2 = () => {
             </Card>
           </Box>
         </Card>
+                <div className="pr">
+                    
+                  <div className="dd">
+                    <ion-icon name="add" onClick={() => sumar()}></ion-icon>
+                  </div>  
+
+                  <div className="dd2">
+                    <ion-icon name="remove-outline" onClick={() => restar()}></ion-icon>
+                  </div> 
+                
+                  <h1 className="cont">{count}</h1>
+                    
+                </div>
       </Container>
     </>
   );
 };
 
 export default ListadeLibros2;
-//https://api.mercadopago.com/checkout/preferences
-{/*
-
-onClick={() =>
-  Comprar(
-    librosCarrito.length
-      ? librosCarrito.reduce(
-          (previousValue, currentValue) =>
-            previousValue +
-            currentValue.precioactual *
-              currentValue.cantidadEnCarrito,
-          0
-        )
-      : 0,
-
-    1
-  )
-}
-
-*/}
+/* 
+<h1 className="cantdet">
+                    u: {count}
+              </h1>
+              <Button onClick={() => sumar()}
+                  variant="contained"
+                  sx={{
+                  backgroundColor: "#8381FF",
+                  }}
+                  >
+                    +
+              </Button>
+              <Button onClick={() => restar()}
+                  variant="contained"
+                  sx={{
+                  backgroundColor: "#8381FF",
+                  margin: 0.8,
+                }}
+                  >
+                    --
+              </Button>
+*/

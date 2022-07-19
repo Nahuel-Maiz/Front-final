@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../hojas-de-estilo/Misdatos.css';
 import Footer from '../../componentes/Footer.jsx';
-import Header from '../../componentes/Header';
+import HeaderAdm from '../../componentes/HeaderAdm';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {Button, CardContent, Grid} from '@mui/material'
@@ -28,12 +28,12 @@ function MisdatosAdmin() {
 
     return (
         <>
-            <Header/>
+            <HeaderAdm/>
                 <Grid className='Misdatos-todoad'>
                     <h1 className='busqueda-ad'>Buscar...</h1>
                     <form className='mover2'>
                         <Button variant='contained' color='error' type='submit' className='guardardatos' >
-                        <Link to ={`/misdatos2/${datos.correo}/edit`} className='botoneditar'>Editar</Link>  
+                        <Link to ={`/misdatos2admin/${datos.correo}/edit`} className='botoneditar'>Editar</Link>  
                         </Button>
                         <p className='Misdatos2'>Mis datos</p>
                         <p className='Datosdcuenta2'>Datos de cuenta</p>

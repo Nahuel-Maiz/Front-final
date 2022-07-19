@@ -37,7 +37,7 @@ function BloqueCarrito() {
             <div key={i} className="item-carrito">
               <img src={libros.img}></img>
               <div>
-                <p>{libros.titulo} </p>
+                <p className="titulo-carr">{libros.titulo} </p>
                 <p>Autor : {libros.autor} </p>
                 <p>Precio : $ {libros.precioactual}</p>
                 <p>Cantidad : {libros.cantidadEnCarrito}</p>

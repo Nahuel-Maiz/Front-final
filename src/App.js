@@ -7,18 +7,20 @@ import Home from "./paginas/usuario/Home";
 import DetalleEjemplar from "./paginas/usuario/DetalleEjemplar";
 import Carrito from "./paginas/usuario/Carrito";
 import prueba from "./componentes/prueba";
-
+import AdmResenias from "./paginas/administrador/AdmResenias.jsx";
 //import Newej from './componentes/Newej';
 import HomeAdmin from "./paginas/administrador/HomeAdmin";
 import NuevoLibro from "./paginas/administrador/NuevoLibro";
 import Misdatos from "./paginas/usuario/Misdatos";
 import Misdatos2 from "./paginas/usuario/Misdatos2";
+import Misdatos2Admin from "./paginas/administrador/Misdatos2Admin.jsx";
 import MisdatosAdmin from "./paginas/administrador/MisdatosAdmin";
 import BarraBusqueda from "./componentes/BarraBusqueda";
 import LogAdmin from "./componentes/LogAdmin";
 import Home2 from "./paginas/usuario/Home2";
 import Home3 from "./paginas/usuario/Home3";
 import Header from "./componentes/Header"
+import MisCompras from "./paginas/usuario/MisCompras";
 
 function App() {
   return (
@@ -64,6 +66,13 @@ function App() {
       <Route exact path="/carrito" component={Carrito} />
 
       <Route exact path="/prueba" component={prueba} />
+      <Route exact path="/res" component={AdmResenias} />
+
+
+      <Route exact path="/resenias/:correo" component={AdmResenias} />
+      <Route exact path="/misdatos2admin/:correo/edit" component={Misdatos2Admin} />
+
+      <Route exact path="/miscompras" component={MisCompras} />
     </BrowserRouter>
   );
 }
